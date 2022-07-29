@@ -4,9 +4,16 @@ Welcome! ☺👋
 
 ## Description 📝
 
+This is a short quiz about Java Script to gauge your understanding of basic JS material. Once you start the quiz you have 75 seconds to answer the questions. Getting a wrong answer will subtrct 10 seconds off of your timer. Once you finish the quiz, you will be given a score and asked to provide your initials to save your score.
+
+
 ## Deployed Webpage 💻
 
+
+
 ## Visuals 📷
+
+
 
 ## Credits 🌎
 

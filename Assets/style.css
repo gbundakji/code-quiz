@@ -9,6 +9,19 @@
     padding-right: 50%;
 }
 
+h1 {
+    text-align: center;
+}
+
+#questId {
+    /* margin: 20px; */
+    text-align: center;
+    border: 15px solid black;
+    padding: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
 #startQuiz {
     background-color: blue;
     padding: 15px 32px;
@@ -18,13 +31,17 @@
     align-content: center;
 }
 
-#questionsDiv {
-    /* margin: 20px; */
+button {
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: blue;
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    top: 30%;
+    width: auto;
     text-align: center;
-    border: 15px solid black;
-    padding: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
 }
 
 #timer {
@@ -34,7 +51,18 @@
     left: 800px;
 }
 
-#goBack {
+li {
+    background-color: blue;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+}
+
+#restart {
     background-color: blue;
     position: relative;
     padding: 10px;
@@ -47,19 +75,16 @@
     text-decoration: none;
 }
 
-#clear {
+#clearScores {
     background-color: blue;
-    position: relative;
+    position: absolute;
+    cursor: pointer;
     padding: 10px;
     font-size: 20px;
     color: white;
     top: 30%;
     right: 5%;
     text-align: center;
-}
-
-button {
-    border-radius: 8px;
 }
 
 textarea {
@@ -87,20 +112,6 @@ input {
     border: 5px solid blue;
     padding: 5px 15px;
     font-size: 20px;
-}
-
-h1 {
-    text-align: center;
-}
-
-li {
-    background-color: blue;
-    margin-top: 10px;
-    border-radius: 10px;
-    padding: 5px 15px;
-    font-size: 18px;
-    color: white;
-    text-align: left;
 }
 
 #createDiv {
@@ -133,8 +144,7 @@ margin-left: 20%;
 #clear {
     position: relative;
     right: 5%;
-}
-}
+}}
 
 /* A Media Query max-width: 640px */
 @media screen and (max-width: 640px) {
@@ -147,9 +157,7 @@ body {
 position: absolute;
 left: 10%;
 }
+
 a {
   margin-left: 10%;
-}
-
-
-}
+}}

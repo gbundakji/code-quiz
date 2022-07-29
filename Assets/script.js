@@ -1,6 +1,6 @@
 var timer = document.querySelector("#timer");
 var timer = document.querySelector("#startQuiz");
-var questionsDiv = document.querySelector("#questionsDiv");
+var questId = document.querySelector("#questId");
 var question = document.querySelector("#question");
 var secondsLeft = 75;
 var holdInterval = 0;
@@ -34,6 +34,11 @@ var questions = [
         choices: ["1. Javascript", "2. Terminal / Bash", "3. For loops", "4. Console log"],
         answer: "Console log"
     },
+    {
+        title: "Does Gassan deserve and A on this project?",
+        choices: ["1. Yes", "2. I want to say no but yes", "3. Nah dude", "4. Kinda"],
+        answer: "Yes"
+    },
 
 ];
 
@@ -58,20 +63,20 @@ timer.addEventListener("click", function () {
 
 function render(questionIndex) {
 
-    questionsDiv.innerHTML = "";
+    questId.innerHTML = "";
     ulCreate.innerHTML = "";
 
     for (var i = 0; i < questions.length; i++) {
 
         var userQuestion = questions[questionIndex].title;
         var userChoices = questions[questionIndex].choices;
-        questionsDiv.textContent = userQuestion;
+        questId.textContent = userQuestion;
     }
 
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
-        questionsDiv.appendChild(ulCreate);
+        questId.appendChild(ulCreate);
         ulCreate.appendChild(listItem);
         listItem.addEventListener("click", (compare));
     })
@@ -106,25 +111,25 @@ function compare(event) {
     } else {
         render(questionIndex);
     }
-    questionsDiv.appendChild(createDiv);
+    questId.appendChild(createDiv);
 
 }
 
 function allDone() {
-    questionsDiv.innerHTML = "";
+    questId.innerHTML = "";
     timer.innerHTML = "";
 
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "All Done!"
 
-    questionsDiv.appendChild(createH1);
+    questId.appendChild(createH1);
 
 
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
 
-    questionsDiv.appendChild(createP);
+    questId.appendChild(createP);
 
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
@@ -132,30 +137,30 @@ function allDone() {
         clearInterval(holdInterval);
         createP.textContent = "Your final score is: " + timeRemaining;
 
-        questionsDiv.appendChild(createP2);
+        questId.appendChild(createP2);
     }
 
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter initials: ";
 
-    questionsDiv.appendChild(createLabel);
+    questId.appendChild(createLabel);
 
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
-    createInput.textContent = "";
+    // createInput.textContent = "";
 
-    questionsDiv.appendChild(createInput);
+    questId.appendChild(createInput);
 
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
     createSubmit.textContent = "Submit";
 
-    questionsDiv.appendChild(createSubmit);
 
-    createSubmit.addEventListener("click", function () {
+
+    createSubmit.addEventListener("submit", function () {
         var initials = createInput.value;
 
         if (initials === null) {
@@ -167,8 +172,10 @@ function allDone() {
                 initials: initials,
                 score: timeRemaining
             }
+            localStorage.setItem("initials", finalScore.initials)
+            localStorage.setItem("score", finalScore.score)
             console.log(finalScore);
-            var allScores = localStorage.getItem("allScores");
+            var allScores = localStorage.getItem("initials","score");
             if (allScores === null) {
                 allScores = [];
             } else {
@@ -177,17 +184,18 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-            window.location.replace("./score.html");
+            window.location.replace("./Assets/score.html");
         }
     });
+    questId.appendChild(createSubmit);
 }
 
 var highScore = document.querySelector("#highScore");
-var clear = document.querySelector("#clear");
-var goBack = document.querySelector("#goBack");
+var clearScores = document.querySelector("#clearScores");
+var restart = document.querySelector("#restart");
 
-clear.addEventListener("click", function () {
-    localStorage.clear();
+clearScores.addEventListener("click", function () {
+    localStorage.clearScores();
     location.reload();
 });
 
@@ -205,6 +213,6 @@ if (allScores !== null) {
     }
 }
 
-goBack.addEventListener("click", function () {
+restart.addEventListener("click", function () {
     window.location.replace("./index.html");
 });
