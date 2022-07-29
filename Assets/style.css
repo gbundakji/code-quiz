@@ -62,31 +62,6 @@ li {
     text-align: left;
 }
 
-#restart {
-    background-color: blue;
-    position: relative;
-    padding: 10px;
-    font-size: 20px;
-    color: white;
-    top: 30%;
-    left: 55%;
-    width: auto;
-    text-align: center;
-    text-decoration: none;
-}
-
-#clearScores {
-    background-color: blue;
-    position: absolute;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 20px;
-    color: white;
-    top: 30%;
-    right: 5%;
-    text-align: center;
-}
-
 textarea {
     width: 90%;
     margin: 20px;
@@ -101,10 +76,6 @@ textarea {
     color: white;
 }
 
-label {
-    margin-right: 10px;
-}
-
 input {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -117,6 +88,31 @@ input {
 #createDiv {
     margin-top: 20px;
     border-top: 1px solid lightgray;
+}
+
+#restart {
+    background-color: blue;
+    position: relative;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    top: 30%;
+    left: 70%;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+#clearScores {
+    background-color: blue;
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    top: 30%;
+    right: 40%;
+    text-align: center;
 }
 
 /* Start media queries */

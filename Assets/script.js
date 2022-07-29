@@ -149,7 +149,7 @@ function allDone() {
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
-    // createInput.textContent = "";
+    createInput.textContent = "";
 
     questId.appendChild(createInput);
 
