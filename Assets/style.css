@@ -1,18 +1,4 @@
-#question {
-    position: absolute;
-    left: 30%;
-    top: 20%;
-    width: 500px;
-    height: 500px;
-    font-size: 25px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding-right: 50%;
-}
-
-h1 {
-    text-align: center;
-}
-
+/* Styling for coding quiz challenge */
 #questId {
     /* margin: 20px; */
     text-align: center;
@@ -22,15 +8,7 @@ h1 {
     padding-right: 100px;
 }
 
-#startQuiz {
-    background-color: blue;
-    padding: 15px 32px;
-    font-size: 25px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
-    align-content: center;
-}
-
+/* Styling for buttons */
 button {
     border-radius: 8px;
     cursor: pointer;
@@ -44,6 +22,34 @@ button {
     text-align: center;
 }
 
+/* Styling for the start quiz button */
+#startQuiz {
+    background-color: blue;
+    padding: 15px 32px;
+    font-size: 25px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    align-content: center;
+}
+
+/* Styling for all the questions */
+#question {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+    width: 500px;
+    height: 500px;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-right: 50%;
+}
+
+/* Styling for coding quiz challenge header */
+h1 {
+    text-align: center;
+}
+
+/* Styling for timer */
 #timer {
     float: right;
     position: absolute;
@@ -51,6 +57,7 @@ button {
     left: 800px;
 }
 
+/* Styling for the list of answer options */
 li {
     background-color: blue;
     cursor: pointer;
@@ -62,20 +69,13 @@ li {
     text-align: left;
 }
 
+/* Styling for the initials text area */
 textarea {
     width: 90%;
     margin: 20px;
 }
 
-#Submit {
-    background-color: blue;
-    margin-left: 30%;
-    margin-right: 30%;
-    padding: 15px 32px;
-    font-size: 25px;
-    color: white;
-}
-
+/* Styling for the input text area */
 input {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -85,11 +85,24 @@ input {
     font-size: 20px;
 }
 
-#createDiv {
+/* Styling for the submit button */
+#Submit {
+    background-color: blue;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 15px 32px;
+    font-size: 25px;
+    color: white;
+}
+
+/* Styling for the answers */
+#answerDiv {
+    color: gray;
     margin-top: 20px;
     border-top: 1px solid lightgray;
 }
 
+/* Styling for restart button */
 #restart {
     background-color: blue;
     position: relative;
@@ -97,12 +110,13 @@ input {
     font-size: 20px;
     color: white;
     top: 30%;
-    left: 70%;
+    left: 40%;
     width: auto;
     text-align: center;
     text-decoration: none;
 }
 
+/* Styling for clear scores button */
 #clearScores {
     background-color: blue;
     position: relative;
@@ -115,13 +129,14 @@ input {
     text-align: center;
 }
 
-/* Start media queries */
+
 /* A Media Query max-width: 786px */
 @media screen and (max-width: 786px) {
 /* Resized content to fit 786px  */
 body {
     max-width: 786px;
 }
+
 /* Resized main-content to fit 786px  */
 #question {
 position: absolute;
@@ -132,7 +147,7 @@ a {
 margin-left: 20%;
 }
 
-#goBack {
+#restart {
     position: relative;
     left: 55%;
 }
@@ -148,6 +163,7 @@ margin-left: 20%;
 body {
     min-width: 640px;
 }
+
 /* Resized main-content to fit 640px  */
 #question {
 position: absolute;

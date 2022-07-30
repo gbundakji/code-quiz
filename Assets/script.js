@@ -1,3 +1,4 @@
+// Declaring variables
 var timer = document.querySelector("#timer");
 var timer = document.querySelector("#startQuiz");
 var questId = document.querySelector("#questId");
@@ -8,6 +9,7 @@ var penalty = 10;
 var score = 0;
 var questionIndex = 0;
 var ulCreate = document.createElement("ul"); 
+// Variable containg array of questions
 var questions = [
     {
         title: "Commonly used data types DO NOT include:",
@@ -42,9 +44,8 @@ var questions = [
 
 ];
 
-
+// Event listener for a button to begin function to start the timer
 timer.addEventListener("click", function () {
-
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             secondsLeft--;
@@ -60,7 +61,7 @@ timer.addEventListener("click", function () {
     render(questionIndex);
 });
 
-
+// Function to prompt the questions
 function render(questionIndex) {
 
     questId.innerHTML = "";
@@ -82,39 +83,37 @@ function render(questionIndex) {
     })
 }
 
+// Function to prompt the user if their asnwer is correct or wrong
 function compare(event) {
     var element = event.target;
 
     if (element.matches("li")) {
 
-        var createDiv = document.createElement("div");
-        createDiv.setAttribute("id", "createDiv");
+        var answerDiv = document.createElement("div");
+        answerDiv.setAttribute("id", "answerDiv");
 
         if (element.textContent == questions[questionIndex].answer) {
             score++;
-            createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
-
+            answerDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
         } else {
-
             secondsLeft = secondsLeft - penalty;
-            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+            answerDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
 
     }
-
+    // Provides the users score
     questionIndex++;
 
     if (questionIndex >= questions.length) {
-
         allDone();
-        createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+        answerDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
     } else {
         render(questionIndex);
     }
-    questId.appendChild(createDiv);
-
+    questId.appendChild(answerDiv);
 }
 
+// Function for when the quiz is all done
 function allDone() {
     questId.innerHTML = "";
     timer.innerHTML = "";
@@ -131,6 +130,7 @@ function allDone() {
 
     questId.appendChild(createP);
 
+    // If statement to calculate the final score
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var createP2 = document.createElement("p");
@@ -139,13 +139,14 @@ function allDone() {
 
         questId.appendChild(createP2);
     }
-
+    // Creating the label
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter initials: ";
 
     questId.appendChild(createLabel);
 
+    // Creating the input
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
@@ -153,25 +154,25 @@ function allDone() {
 
     questId.appendChild(createInput);
 
+    // Creating submit button
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
     createSubmit.textContent = "Submit";
-
-
-
-    createSubmit.addEventListener("submit", function () {
+    questId.appendChild(createSubmit);
+    
+    // Event listener for the submit button 
+    createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
 
         if (initials === null) {
-
             console.log("No value entered!");
-
         } else {
             var finalScore = {
                 initials: initials,
                 score: timeRemaining
             }
+            // Stores the score in the local storage
             localStorage.setItem("initials", finalScore.initials)
             localStorage.setItem("score", finalScore.score)
             console.log(finalScore);
@@ -184,35 +185,10 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-            window.location.replace("./Assets/score.html");
+            window.location.replace("./score.html");
         }
+        
     });
-    questId.appendChild(createSubmit);
+    // here
+    
 }
-
-var highScore = document.querySelector("#highScore");
-var clearScores = document.querySelector("#clearScores");
-var restart = document.querySelector("#restart");
-
-clearScores.addEventListener("click", function () {
-    localStorage.clearScores();
-    location.reload();
-});
-
-var allScores = localStorage.getItem("allScores");
-allScores = JSON.parse(allScores);
-
-if (allScores !== null) {
-
-    for (var i = 0; i < allScores.length; i++) {
-
-        var createLi = document.createElement("li");
-        createLi.textContent = allScores[i].initials + " " + allScores[i].score;
-        highScore.appendChild(createLi);
-
-    }
-}
-
-restart.addEventListener("click", function () {
-    window.location.replace("./index.html");
-});
