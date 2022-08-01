@@ -9,7 +9,7 @@ This is a short quiz about Java Script to gauge your understanding of basic JS m
 
 ## Deployed Webpage 💻
 
-
+https://gbundakji.github.io/code-quiz/
 
 ## Visuals 📷
 
@@ -39,10 +39,15 @@ width = "500px">
 
 
 ## Credits 🌎
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+
 https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
+
 https://stackoverflow.com/
 
 Chris Shoe 🥇
