@@ -1,4 +1,4 @@
-# Code Quiz
+# Code Quiz⏳
 
 Welcome! ☺👋
 
@@ -13,13 +13,41 @@ This is a short quiz about Java Script to gauge your understanding of basic JS m
 
 ## Visuals 📷
 
+<img src = "./Assets/images/code-quiz1.png"
+width = "500px">
+
+<img src = "./Assets/images/code-quiz2.png"
+width = "500px">
+
+<img src = "./Assets/images/code-quiz3.png"
+width = "500px">
+
+<img src = "./Assets/images/code-quiz4.png"
+width = "500px">
+
+<img src = "./Assets/images/code-quiz5.png"
+width = "500px">
+
+<img src = "./Assets/images/code-quiz6.png"
+width = "500px">
+
+<img src = "./Assets/images/code-quiz7.png"
+width = "500px">
+
+<img src = "./Assets/images/code-quiz8.png"
+width = "500px">
 
 
 ## Credits 🌎
-
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
 https://stackoverflow.com/
 
 Chris Shoe 🥇
+
+Matthew Calimbas 🥇
 
 ## License 🔑
 

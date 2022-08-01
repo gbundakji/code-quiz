@@ -1,6 +1,5 @@
 /* Styling for coding quiz challenge */
 #questId {
-    /* margin: 20px; */
     text-align: center;
     border: 15px solid black;
     padding: 50px;
@@ -52,9 +51,6 @@ h1 {
 /* Styling for timer */
 #timer {
     float: right;
-    position: absolute;
-    bottom: 900px;
-    left: 800px;
 }
 
 /* Styling for the list of answer options */
@@ -102,15 +98,19 @@ input {
     border-top: 1px solid lightgray;
 }
 
+.buttonElement {
+    display: inline-block !important;
+}
+
+
 /* Styling for restart button */
 #restart {
+    margin-top: 10px;
     background-color: blue;
-    position: relative;
+    cursor: pointer;
     padding: 10px;
     font-size: 20px;
     color: white;
-    top: 30%;
-    left: 40%;
     width: auto;
     text-align: center;
     text-decoration: none;
@@ -119,16 +119,12 @@ input {
 /* Styling for clear scores button */
 #clearScores {
     background-color: blue;
-    position: relative;
     cursor: pointer;
     padding: 10px;
     font-size: 20px;
     color: white;
-    top: 30%;
-    right: 40%;
     text-align: center;
 }
-
 
 /* A Media Query max-width: 786px */
 @media screen and (max-width: 786px) {

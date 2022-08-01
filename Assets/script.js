@@ -1,6 +1,6 @@
 // Declaring variables
 var timer = document.querySelector("#timer");
-var timer = document.querySelector("#startQuiz");
+var startBtn = document.querySelector("#startQuiz");
 var questId = document.querySelector("#questId");
 var question = document.querySelector("#question");
 var secondsLeft = 75;
@@ -13,39 +13,39 @@ var ulCreate = document.createElement("ul");
 var questions = [
     {
         title: "Commonly used data types DO NOT include:",
-        choices: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
+        choices: ["Strings", "Booleans", "Alerts", "Numbers"],
         answer: "Alerts"
     },
     {
         title: "The condition in an if / else statement is enclosed within ______.",
-        choices: ["1. Quotes", "2. Curly brackets", "3. Parentheses", "4. Square brackets"],
+        choices: ["Quotes", "Curly brackets", "Parentheses", "Square brackets"],
         answer: "Parentheses"
     },
     {
         title: "Arrays in Javascript can be used to store ______.",
-        choices: ["1. Numbers and strings", "2. Other arrays", "3. Booleans", "4. All of the above"],
+        choices: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
         answer: "All of the above"
     },
     {
         title: "String values must be enclosed within ______ when being assigned to variables.",
-        choices: ["1. Commas", "2. Curly brackets", "3. Quotes", "4. Parenthesis"],
+        choices: ["Commas", "Curly brackets", "Quotes", "Parenthesis"],
         answer: "Quotes"
     },
     {
         title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
-        choices: ["1. Javascript", "2. Terminal / Bash", "3. For loops", "4. Console log"],
+        choices: ["Javascript", "Terminal / Bash", "For loops", "Console log"],
         answer: "Console log"
     },
     {
         title: "Does Gassan deserve and A on this project?",
-        choices: ["1. Yes", "2. I want to say no but yes", "3. Nah dude", "4. Kinda"],
+        choices: ["Yes", "I want to say no but yes", "Nah dude", "Kinda"],
         answer: "Yes"
     },
 
 ];
 
 // Event listener for a button to begin function to start the timer
-timer.addEventListener("click", function () {
+startBtn.addEventListener("click", function () {
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             secondsLeft--;
@@ -86,7 +86,8 @@ function render(questionIndex) {
 // Function to prompt the user if their asnwer is correct or wrong
 function compare(event) {
     var element = event.target;
-
+console.log(element.textContent)
+console.log(questions[questionIndex].answer)
     if (element.matches("li")) {
 
         var answerDiv = document.createElement("div");
@@ -172,23 +173,15 @@ function allDone() {
                 initials: initials,
                 score: timeRemaining
             }
-            // Stores the score in the local storage
-            localStorage.setItem("initials", finalScore.initials)
-            localStorage.setItem("score", finalScore.score)
-            console.log(finalScore);
-            var allScores = localStorage.getItem("initials","score");
-            if (allScores === null) {
-                allScores = [];
-            } else {
-                allScores = JSON.parse(allScores);
-            }
+            var allScores = JSON.parse(localStorage.getItem("allScores")) || [];
+
+            console.log(allScores);
             allScores.push(finalScore);
+
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
             window.location.replace("./score.html");
         }
         
-    });
-    // here
-    
+    });  
 }

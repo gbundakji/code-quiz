@@ -5,7 +5,7 @@ var restart = document.querySelector("#restart");
 
 // Clearing scores from the local storage
 clearScores.addEventListener("click", function () {
-    localStorage.clearScores();
+    localStorage.removeItem("allScores");
     location.reload();
 });
 
